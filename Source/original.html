@@ -1,0 +1,81 @@
+<!--INSERTADTHISPAGE-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<LINK REL="SHORTCUT ICON" HREF="/favicon.ico"> 
+<title>.:] Digital Paint [:.:] Paintball 2.0 [:.:] Documentation [:.:] Win32 Server Guide [:.</title>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<meta name="author" content="jitspoe">
+</head>
+<link rel="stylesheet" href="../dpstyle_v3.css" type="text/css">
+<body text=#C9C9C9 bgcolor=#1D1E30 link=#ffffff alink=#ffffff vlink=#ffffff background="i/bg.jpg" topmargin=0 leftmargin=0 marginwidth=0 marginheight=0>
+<center>
+<script language="javascript" type="text/javascript"> 
+document.write("<"+"script type='text/javascript' src='http://wrapper.gamespy.com/a?pagetype=pnh_content&amp;size=728x90'>"); 
+document.write("<"+"/script>"); 
+</script> 
+<noscript> 
+<iframe valign=top WIDTH=728 HEIGHT=90 MARGINWIDTH=0 MARGINHEIGHT=0 HSPACE=0 VSPACE=0 FRAMEBORDER=0 SCROLLING=no BORDERCOLOR="#000000" SRC="http://wrapper.gamespy.com/a?pagetype=pnh_content&amp;size=728x90&amp;sizew=728&amp;sizeh=90&amp;js=false"> 
+</iframe> 
+</noscript>
+</center>
+
+<script language="JavaScript" src="../dplayout_v3.js" type="text/javascript"></script>
+
+<script language="JavaScript">
+ps();
+</script>
+<script language="JavaScript">
+pa();
+
+ts1();</script>Win32 Server Guide <script language="JavaScript">ts2();
+
+tn1();</script> Step 1: Requirements <script language="JavaScript">tn2();
+tn3();</script><font class="h2font">Network</font><br>
+   The main requirement for Paintball 2 is bandwidth. Best-case, each client upload speed can take about 3k/s while the worst-case for a client can take about 10k/s up (absolute max of 14k/s).<br>
+   Avoid using older networking technologies such as cable and DSL due to lower bandwidth. Having more than 8 players can hinder server performance.<br><br><font class="h2font">Hardware</font><br>
+   Minimum requirements:<br>Processor: 200mhz<br>Memory: 32mb<br><br>Recommended requirements:<br>Processor: 300mhz<br>Memory: 64mb<br><br><script language="JavaScript">
+tn6();
+
+tn1();</script> Step 2: Configuration <script language="JavaScript">tn2();
+tn3();</script>There is a template included at paintball2\pball\configs\server.cfg.  Rename that so it won't get overwritten by the server.cfg included with new versions.  For simplicity's sake, call it myserver.cfg.  Now open up myserver.cfg in Notepad or Wordpad and adjust the settings to your desire.<br><br>
+<font class="h2font">Server Name and Info</font><br>
+The first thing you will want to change is the "hostname" as that is what is displayed in the serverlist.  You can also have additional variable names that will show up in the server info, such as location and admin contact information.  These are optional.  Adding an "s" to the end of the set command will put that variable in the server info.  For example:<br>
+set location "Houston, TX" s<br>
+<br>
+<font class="h2font">Rotation</font><br>
+The next thing you may want to edit is the map rotation.  Let's call the new file myrotation.txt:<br>
+set rot_file pball/configs/myrotation.txt<br>
+Open up the sample rotation.txt, make whatever changes you want, and do a file|save as "myrotation.txt".  Also, a recent feature allows you to edit and save map rotations remotely while the game is running.  You can do this through the remote admin menu or with the "rotation" command.  See below for how to set up remote admin options.<br>
+<br>
+<font class="h2font">Remote Admin</font><br>
+Paintball2 has a handy way of controlling who can use what commands: Operator levels.  You can have up to 5.  These are set toward the end of the server config file.<br>
+For example:<br>
+set oppass1 "dog"<br>
+set oppass1level 50<br>
+set oppass2 "king"<br>
+set oppass2level 150<br>
+Once the server is up, you can type "login dog" and it will give you an op level of 50, or "login king" and get an op level of 150.  The op levels required for each command can be set in pball\configs\commands.txt, but you shouldn't need to edit those.<br>
+<br>
+<script language="JavaScript">
+tn6();
+
+tn1();</script> Step 3: Starting the Server <script language="JavaScript">tn2();
+tn3();</script>Create a shortcut to paintball2.exe (right click and drag paintball2.exe to the desktop or wherever you want the shortcut to be, then select "Create Shortcut(s) Here" from the dropdown).  Right click on the shortcut and go to "Properties."  Under the "Shortcut" tab, click on the "Target:" edit box.  Press the END key, and add the following: " +set dedicated 1 +set public 1 +exec myserver.cfg +map midnight" (without the quotes).  Make sure there's a space between the "exe" and the "+set".  Now just hit OK, doubleclick on the shortcut and it should start up.  It'll pop up a window with something like "====== Paintball II Initialized ======".  You can copy this shortcut into your start menu under start|programs|startup and it will run every time windows loads.<br>
+<br>
+<script language="JavaScript">
+tn6();
+
+tn1();</script> Troubleshooting <script language="JavaScript">tn2();
+tn3();</script>The most common problems when setting up servers are routers and firewalls.  If the server machine goes through a router, make sure you set the router to forward UDP packets on port 27910 (or whatever port you're running the server on) to the server machine.  Likewise open up port 27910 on your firewall and ensure that paintball2.exe is allowed to act as a server.<br>
+<script language="JavaScript">
+tn6();
+
+te();
+
+pe();
+</script>
+
+
+<noscript><a href="/">Digital</a><a href="http://www.digitalpaint.org/">paint.org</a> - You must have JavaScript enabled in order to view this page.</noscript>
+</body></html>
